@@ -1,0 +1,23 @@
+name: "Heroku Direct Deploy" #set whatevername you want to your github job
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy Docker Image to Heroku Ap
+        # You may pin to the exact commit or the version.
+        # uses: jctaveras/heroku-deploy@7b87e8dd4665d3b667e0cf1633241a66e3abd396
+        uses: jctaveras/heroku-deploy@v2.0.0
+        with:
+          # Email Linked to your Heroku Account
+          email: your herouku email
+          # Your Heroku API Key
+          api_key: ur heroku api key
+          # Your Heroku App Name
+          app_name: ur heroku project name
+          # Dokerfile path
+          dockerfile_path: ./
